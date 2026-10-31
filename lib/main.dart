@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list_flutter_app/contants/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:todo_list_flutter_app/screens/auth_wrapper.dart';
 import 'firebase_options.dart';
 import 'package:todo_list_flutter_app/screens/login_screen.dart';
 
@@ -65,7 +66,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: LoginScreen(),
+      home: AuthWrapper(),
     );
   }
 }
