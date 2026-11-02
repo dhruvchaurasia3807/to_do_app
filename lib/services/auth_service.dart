@@ -28,7 +28,7 @@ class AuthService {
          );
          return result.user;
     }
-    catch{
+    catch(e){
       rethrow;
     }
   }
