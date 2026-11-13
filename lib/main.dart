@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_list_flutter_app/contants/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:todo_list_flutter_app/screens/auth_wrapper.dart';
+import 'package:todo_list_flutter_app/services/database_service.dart';
 import 'firebase_options.dart';
 import 'package:todo_list_flutter_app/screens/home_screen.dart';
 import 'package:todo_list_flutter_app/screens/login_screen.dart';
@@ -32,6 +33,11 @@ class MyApp extends StatelessWidget {
          StreamProvider<User?>(
           create: (context) => context.read<local_auth.AuthProvider>().user,
           initialData : null,
+         ),
+
+         //Database Service depends on user (specifically uid)
+         ProxyProvider<User?, DatabaseService>(
+           update: (_, user, __) => DatabaseService(uid: user?.uid),
          ),
 
       ],
